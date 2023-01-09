@@ -12,7 +12,6 @@ Training
 `!python train.py --workers 1 --device 0 --batch-size 16 --epochs 100 --img 640 640 --hyp data/hyp.scratch.custom.yaml --name yolov7-custom --weights`  
 圖片辨識
 ```python  
-# Number Plate Detection using Yolov7
 
 import matplotlib.pyplot as plt
 import torch
@@ -20,6 +19,9 @@ import cv2
 import numpy as np
 import time
 from google.colab.patches import cv2_imshow
+
+import imutils
+import easyocr
 
 from torchvision import transforms
 import sys
