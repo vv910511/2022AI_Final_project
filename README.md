@@ -10,6 +10,7 @@
 ## 程式說明  
 Training  
 `!python train.py --workers 1 --device 0 --batch-size 16 --epochs 100 --img 640 640 --hyp data/hyp.scratch.custom.yaml --name yolov7-custom --weights`  
+圖片辨識
 ```python  
 # Number Plate Detection using Yolov7
 
@@ -75,18 +76,14 @@ for idx in range(output.shape[0]):
     #cv2_imshow("Plate",plate_roi)
     cv2_imshow(plate_roi)
   
-    '''
-    reader = easyocr.Reader(['en'])
-    result = reader.readtext('/content/ANPRwithPython/5.png',paragraph="False")
-    result[2][1]
-    '''
+  
     #辨識車牌中的文字
     reader = easyocr.Reader(['en'])
     result = reader.readtext(plate_roi,paragraph="False")
     result_text=''
     if (len(result)>0):
       result_text=result[0][1]
-
+    #將辨識到的文字放入圖中標籤處
     cv2.putText(nimg, result_text , (int(xmin), int(ymin)-5), cv2.FONT_HERSHEY_SIMPLEX,1, (228, 79, 215), 2)
     cv2.rectangle(
         nimg,
