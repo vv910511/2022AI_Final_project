@@ -8,5 +8,5 @@
 * "predefined_classes.txt":本專案所使用之labelimg data檔  
 
 ### 程式說明  
-Training
+Training  
 `!python train.py --workers 1 --device 0 --batch-size 16 --epochs 100 --img 640 640 --hyp data/hyp.scratch.custom.yaml --name yolov7-custom --weights`    
